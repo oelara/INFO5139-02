@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Signin</h1>
+  <div *ngIf="authentication_failed">
+    <div class="alert alert-danger" role="alert">
+      Unable to authenticate using provided information!
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        [(ngModel)]="user.email"
+        name="email"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >We'll never share your email with anyone else.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        [(ngModel)]="user.password"
+        name="password"
+      />
+    </div>
+
+    <div class="form-group">
+      <a routerLink="/register">Register</a>
+    </div>
+
+    <button type="button" (click)="getByEmail()" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

@@ -36,5 +36,22 @@
         Search
       </button>
     </form> -->
+    <div class="form-inline my-2 my-lg-0">
+      <div *ngIf="user.first_name.length > 0" class="mr-2">
+        Welcome <b>{{ user.first_name }}</b>
+      </div>
+      <a
+        *ngIf="user.first_name.length <= 0"
+        class="btn btn-outline-primary my-2, my-sm-0"
+        routerLink="/signin"
+        >Signin</a
+      >
+      <a
+        *ngIf="user.first_name.length > 0"
+        class="btn btn-outline-danger my-2 my-sm-0 ml-2"
+        (click)="signout()"
+        >Signout</a
+      >
+    </div>
   </div>
 </nav>
